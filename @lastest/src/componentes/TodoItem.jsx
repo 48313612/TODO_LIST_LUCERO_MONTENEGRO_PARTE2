@@ -1,17 +1,18 @@
 import React from 'react';
 
-function TodoItem() {
-  return (
-    <li>
-      <div>
+const TodoItem = ({ tarea }) => {
+    return (
+      <li className={tarea.completada ? 'completada' : ''}>
         <input type="checkbox" checked={tarea.completada} readOnly />
-        {tarea.texto}
-        <div>Creada: {tarea.creadaEn}</div>
-        {tarea.completadaEn && <div>Completada: {tarea.completadaEn}</div>}
-      </div>
-      <button className="btn btn-outline-danger">Eliminar</button>
-    </li>
-  );
-}
-
+        <span className={tarea.completada ? 'completada' : ''}>
+          {tarea.texto}
+        </span>
+        <span>
+          {tarea.creadaEn}
+        </span>
+        <button>Eliminar</button>
+      </li>
+    );
+  };
+  
 export default TodoItem

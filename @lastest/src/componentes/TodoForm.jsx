@@ -1,13 +1,13 @@
 import React from 'react';
 
-function TodoForm() {
-return (
-    <div>
-      <input type="text" placeholder="Agregar tarea" />
-      <button className="btn btn-primary">Añadir</button>
-    </div>
-)
-};
-
+const TodoForm = () => {
+    return (
+      <div className="controles">
+        <input type="text" />
+        <button>Agregar tarea</button>
+        <button className="eliminar">Eliminar completadas</button>
+      </div>
+    );
+  };
 
 export default TodoForm

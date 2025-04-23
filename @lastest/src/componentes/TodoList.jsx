@@ -1,14 +1,14 @@
 import React from 'react';
-import TodoItem from './TodoItem.jsx';
+import TodoItem from './TodoItem';
 
-function TodoList({ tareas }) {
-    return (
-      <ul>
-        {tareas.map((tarea, i) => (
-          <TodoItem key={i} tarea={tarea} />
-        ))}
-      </ul>
-    );
-}
+const TodoList = ({ tareas }) => {
+  return (
+    <ul id="listaTareas" className="list-group mt-3">
+      {tareas.map((tarea) => (
+        <TodoItem key={tarea.id} tarea={tarea} />
+      ))}
+    </ul>
+  );
+};
 
 export default TodoList
