@@ -3,7 +3,7 @@ import React from 'react';
 const TodoItem = ({ tarea }) => {
     return (
       <li className={tarea.completada ? 'completada' : ''}>
-        <input type="checkbox" checked={tarea.completada} readOnly />
+        <input type="checkbox" checked={tarea.completada} />
         <span className={tarea.completada ? 'completada' : ''}>
           {tarea.texto}
         </span>
