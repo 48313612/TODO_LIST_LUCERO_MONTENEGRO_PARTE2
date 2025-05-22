@@ -1,14 +1,26 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import TodoItem from './TodoItem';
 
-const TodoList = ({ tareas }) => {
-  return (
-    <ul id="listaTareas" className="list-group mt-3">
-      {tareas.map((tarea) => (
-        <TodoItem key={tarea.id} tarea={tarea} />
-      ))}
-    </ul>
-  );
-};
+function TodoList({ tareas, setTareas }) {
+  useEffect(() => {
+    localStorage.setItem('tareas', JSON.stringify(tareas));
+  }, [tareas]);
 
-export default TodoList
+  const eliminarTarea = (tareaAEliminar) => {
+    setTareas(tarea.filter(tarea => tarea !== tareaAEliminar));
+  };
+
+  return (
+    <div>
+      {tareas.length === 0 ? (
+        <p>No hay tareas</p>
+      ) : (
+        tareas.map((tarea, index) => (
+          <TodoItem key={index} datos={tarea} eliminarTarea={eliminarTarea} />
+        ))
+      )}
+    </div>
+  );
+}
+
+export default TodoList;
