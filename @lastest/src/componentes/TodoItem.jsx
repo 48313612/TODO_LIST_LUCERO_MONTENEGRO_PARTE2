@@ -10,9 +10,9 @@ const TodoItem = ({ tarea }) => {
         <span>
           {tarea.creadaEn}
         </span>
-        <button>Eliminar</button>
+        <button onClick={() => eliminarTarea(datos)}> Eliminar × </button>
       </li>
     );
   };
   
-export default TodoItem
+export default TodoItem;
