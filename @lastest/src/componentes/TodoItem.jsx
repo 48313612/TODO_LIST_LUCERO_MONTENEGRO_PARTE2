@@ -1,6 +1,7 @@
 import React from 'react';
 
-const TodoItem = ({ tarea }) => {
+function TodoItem({ datos, eliminarTarea}) {
+  const { texto, completada, creadaEn, completadaEn } = datos;
     return (
       <li className={tarea.completada ? 'completada' : ''}>
         <input type="checkbox" checked={tarea.completada} />

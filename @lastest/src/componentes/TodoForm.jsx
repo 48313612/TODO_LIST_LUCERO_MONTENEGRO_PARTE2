@@ -4,18 +4,19 @@ function TodoForm({ enviarDatos }){
 
   const [tarea, setTarea] = useState({
     texto: '',
-    completada: '',
-    creadaEn: '',
-    completadaEn: '',
+    completada: false,
+    creadaEn: null,
+    completadaEn: null,
   });
 
   const detectoCambios = (e) => {
-    setTarea(e.target.value)
+    const { name, value } = e.target;
+    setTarea((tarea) => ({ ...tarea, [name]: value }));
   };
 
   const tomarDatos = (e) => {
     e.preventDefault();
-    const validoTexto = validarTexto(tarea.texto);
+    const valido = validarTexto(tarea.texto);
     tarea.completada = false;
     tarea.creadaEn = Date.now();
 
@@ -23,20 +24,20 @@ function TodoForm({ enviarDatos }){
       enviarDatos(tarea); 
       setTarea({
         texto: '',
-        completada: '',
-        creadaEn: '',
-        completadaEn: '',
+        completada: false,
+        creadaEn: null,
+        completadaEn: null,
     });
     }
   };
 
-  const validarTexto = (text) => text.trim().length > 0;
+   const validarTexto = (text) => text.trim().length > 0;
 
   //FORM
   return (
     <form onSubmit={tomarDatos}>
       <div className="controles">
-        <input type="text" placeholder="Escriba la tarea" onChange={detectoCambios} required/>
+        <input type="text" placeholder="Escriba la tarea" name="texto" value={tarea.texto} onChange={detectoCambios} required/>
         {/* {!validoTexto && <p> ERROR. Ingrese una tarea </p>} */}
         <button type ="submit" >Agregar tarea</button>
         <button className="eliminar">Eliminar completadas</button>
