@@ -28,7 +28,7 @@ const TodoApp = () => {
     } else if (filtro === 'pendientes') {
       resultado = tareas.filter(tarea => !tarea.completada);
     } else {
-      resultado = tareas; // fallback
+      resultado = tareas;
     }
     return resultado;
   }
