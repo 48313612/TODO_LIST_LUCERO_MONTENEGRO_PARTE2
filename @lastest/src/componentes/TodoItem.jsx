@@ -1,17 +1,15 @@
 import React from 'react';
 
-function TodoItem({ datos, eliminarTarea}) {
+function TodoItem({ datos, eliminarTarea, marcarCompletada, index}) {
   const { texto, completada, creadaEn, completadaEn } = datos;
     return (
-      <li className={tarea.completada ? 'completada' : ''}>
-        <input type="checkbox" checked={tarea.completada} />
-        <span className={tarea.completada ? 'completada' : ''}>
-          {tarea.texto}
+      <li className={completada ? 'completada' : ''}>
+       <input type="checkbox" checked={completada} onChange={() => marcarCompletada(index)}/>
+        <span className={completada ? 'completada' : ''}>
+          {texto}
         </span>
-        <span>
-          {tarea.creadaEn}
-        </span>
-        <button onClick={() => eliminarTarea(datos)}> Eliminar × </button>
+        <span>{creadaEn}</span>
+        <button onClick={() => eliminarTarea(index)}> Eliminar × </button>
       </li>
     );
   };
