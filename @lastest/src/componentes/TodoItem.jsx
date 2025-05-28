@@ -8,7 +8,7 @@ function TodoItem({ datos, eliminarTarea, marcarCompletada, index}) {
         <span className={completada ? 'completada' : ''}>
           {texto}
         </span>
-        <span>{creadaEn}</span>
+        <span>{new Date(creadaEn).toLocaleString()}</span>
         <button onClick={() => eliminarTarea(index)}> Eliminar × </button>
       </li>
     );

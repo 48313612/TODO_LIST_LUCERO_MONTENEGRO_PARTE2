@@ -21,15 +21,17 @@
   }
   
   .controles {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+    display: flex;
+    flex-direction: column !important;
+    gap: 20px !important;
   }
   
   input {
-  width: 200px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  padding: 10px;
+  font-size: 18px;
+  margin: 2%;
   }
   
   button {
@@ -37,9 +39,10 @@
   padding: 10px;
   background-color: #28a745;
   color: white;
-  border: none;
+  border: 1px solid #ccc;
   border-radius: 5px;
   cursor: pointer;
+  margin-left: 1%;
   }
   
   button:hover {

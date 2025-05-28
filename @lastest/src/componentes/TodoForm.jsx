@@ -40,14 +40,16 @@ function TodoForm({ enviarDatos, eliminarCompletadas }){
 
   //FORM
   return (
-    <form onSubmit={tomarDatos}>
-      <div className="controles">
+    <>
+    <div className="controles">
+      <form onSubmit={tomarDatos}>
         <input type="text" placeholder="Escriba la tarea" name="texto" value={tarea.texto} onChange={detectoCambios}/>
         {!valido && <p style={{ color: 'red' }}>ERROR. Ingrese una tarea</p>}
         <button type ="submit" >Agregar tarea</button>
-        <button className="eliminar" onClick={() => eliminarCompletadas()}>Eliminar completadas</button>
-      </div>
       </form>
+      <button className="eliminar" onClick={() => eliminarCompletadas()}>Eliminar completadas</button>
+    </div>
+      </>
   )
 }
 export default TodoForm;

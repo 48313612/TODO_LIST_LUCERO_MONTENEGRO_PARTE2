@@ -1,6 +1,6 @@
 import React from 'react';
 
-function FilterButtons({ filtro, cambiarFiltro }) {
+function FilterButtons({ filtro, cambiarFiltro, mostrarTareaMasRapida }) {
   return (
     <>
       <select value={filtro} onChange={(e) => cambiarFiltro(e.target.value)} className="mostrarFiltro">
@@ -8,7 +8,7 @@ function FilterButtons({ filtro, cambiarFiltro }) {
         <option value="completadas">Completadas</option>
         <option value="pendientes">Pendientes</option>
       </select>
-      <button onClick={mostrarTareaMasRapida} className='tareaMasRapida' >Tarea más rápida</button>
+      <button onClick={mostrarTareaMasRapida} className='tareaMasRapida'>Tarea más rápida</button>
     </>
   );
 }
